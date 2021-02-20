@@ -197,6 +197,121 @@ namespace Project_FinchControl
             finchRobot.wait(1000);
             finchRobot.noteOff();
 
+            Console.WriteLine();
+            Console.WriteLine("Press any button to hear the birthday song.");
+            Console.ReadLine();
+
+            //
+            //play happy birthday song
+            //
+
+            finchRobot.noteOn(160);
+            finchRobot.wait(350);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(160);
+            finchRobot.wait(350);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(200);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(160);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+            
+            finchRobot.noteOn(230);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(260);
+            finchRobot.wait(800);
+            finchRobot.noteOff();
+
+            finchRobot.wait(700);
+
+            finchRobot.noteOn(160);
+            finchRobot.wait(350);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(160);
+            finchRobot.wait(350);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(200);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(160);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(230);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(260);
+            finchRobot.wait(800);
+            finchRobot.noteOff();
+
+            finchRobot.wait(700);
+
+            finchRobot.noteOn(160);
+            finchRobot.wait(350);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(160);
+            finchRobot.wait(350);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(260);
+            finchRobot.wait(600);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(220);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(180);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(180);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(160);
+            finchRobot.wait(800);
+            finchRobot.noteOff();
+
+            finchRobot.wait(700);
+
+            finchRobot.noteOn(190);
+            finchRobot.wait(400);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(190);
+            finchRobot.wait(400);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(170);
+            finchRobot.wait(600);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(170);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(160);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(140);
+            finchRobot.wait(800);
+            finchRobot.noteOff();
+
+
             DisplayMenuPrompt("Talent Show");
         }
 
