@@ -198,112 +198,112 @@ namespace Project_FinchControl
             finchRobot.noteOff();
 
             Console.WriteLine();
-            Console.WriteLine("Press any button to hear the birthday song.");
+            Console.WriteLine("Press any button to hear the birthday song for good luck.");
             Console.ReadLine();
 
             //
             //play happy birthday song
             //
 
-            finchRobot.noteOn(160);
+            finchRobot.noteOn(392);
             finchRobot.wait(350);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(160);
+            finchRobot.noteOn(392);
             finchRobot.wait(350);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(200);
+            finchRobot.noteOn(440);
             finchRobot.wait(700);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(160);
+            finchRobot.noteOn(392);
             finchRobot.wait(700);
             finchRobot.noteOff();
             
-            finchRobot.noteOn(230);
+            finchRobot.noteOn(450);
             finchRobot.wait(700);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(260);
+            finchRobot.noteOn(493);
             finchRobot.wait(800);
             finchRobot.noteOff();
 
             finchRobot.wait(700);
 
-            finchRobot.noteOn(160);
+            finchRobot.noteOn(392);
             finchRobot.wait(350);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(160);
+            finchRobot.noteOn(392);
             finchRobot.wait(350);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(200);
+            finchRobot.noteOn(440);
             finchRobot.wait(700);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(160);
+            finchRobot.noteOn(392);
             finchRobot.wait(700);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(230);
+            finchRobot.noteOn(450);
             finchRobot.wait(700);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(260);
+            finchRobot.noteOn(493);
             finchRobot.wait(800);
             finchRobot.noteOff();
 
             finchRobot.wait(700);
 
-            finchRobot.noteOn(160);
+            finchRobot.noteOn(392);
             finchRobot.wait(350);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(160);
+            finchRobot.noteOn(392);
             finchRobot.wait(350);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(260);
-            finchRobot.wait(600);
-            finchRobot.noteOff();
-
-            finchRobot.noteOn(220);
+            finchRobot.noteOn(480);
             finchRobot.wait(700);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(180);
+            finchRobot.noteOn(392);
             finchRobot.wait(700);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(180);
+            finchRobot.noteOn(349);
             finchRobot.wait(700);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(160);
+            finchRobot.noteOn(400);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(440);
             finchRobot.wait(800);
             finchRobot.noteOff();
 
             finchRobot.wait(700);
 
-            finchRobot.noteOn(190);
+            finchRobot.noteOn(349);
             finchRobot.wait(400);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(190);
+            finchRobot.noteOn(349);
             finchRobot.wait(400);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(170);
-            finchRobot.wait(600);
-            finchRobot.noteOff();
-
-            finchRobot.noteOn(170);
+            finchRobot.noteOn(329);
             finchRobot.wait(700);
             finchRobot.noteOff();
 
-            finchRobot.noteOn(160);
+            finchRobot.noteOn(311);
+            finchRobot.wait(700);
+            finchRobot.noteOff();
+
+            finchRobot.noteOn(261);
             finchRobot.wait(700);
             finchRobot.noteOff();
 
@@ -330,10 +330,98 @@ namespace Project_FinchControl
             Console.WriteLine("\tThe Finch robot will not show off its glowing talent!");
             DisplayContinuePrompt();
 
-            for (int lightSoundLevel = 0; lightSoundLevel < 255; lightSoundLevel++)
+            for (int lightSoundLevel = 0; lightSoundLevel < 55; lightSoundLevel++)
             {
                 finchRobot.setLED(lightSoundLevel, lightSoundLevel, lightSoundLevel);
-                finchRobot.noteOn(lightSoundLevel * 100);
+                finchRobot.noteOn(lightSoundLevel * 20);
+                finchRobot.noteOff();
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Press anything to continue with more lights");
+            Console.ReadLine();
+
+            //
+            // turn on red LED
+            //
+
+            finchRobot.setLED(250, 0, 0);
+            finchRobot.wait(800);
+            finchRobot.setLED(0, 0, 0);
+
+            finchRobot.wait(400);
+
+            //
+            // turn on green LED
+            //
+
+            finchRobot.setLED(0, 250, 0);
+            finchRobot.wait(800);
+            finchRobot.setLED(0, 0, 0);
+
+            finchRobot.wait(400);
+
+            //
+            // turn on blue LED
+            //
+
+            finchRobot.setLED(0, 0, 250);
+            finchRobot.wait(800);
+            finchRobot.setLED(0, 0, 0);
+
+            //
+            //flash user
+            //
+            
+            for (int numberofFlashes = 0; numberofFlashes < 7; numberofFlashes++)
+            {
+                finchRobot.setLED(250, 0, 0);
+                finchRobot.wait(300);
+                finchRobot.setLED(0, 0, 250);
+                finchRobot.wait(500);
+            }
+            for (int numberofFlashes = 0; numberofFlashes < 10; numberofFlashes++)
+            {
+                finchRobot.setLED(0, 250, 0);
+                finchRobot.wait(175);
+                finchRobot.setLED(0, 0, 250);
+                finchRobot.wait(175);
+                finchRobot.setLED(250, 0, 0);
+            }
+
+           //
+           // increase green light
+           //
+
+            for (int greenLightLevel = 0; greenLightLevel <= 255; greenLightLevel++)
+            {
+                finchRobot.setLED(0, greenLightLevel, 0);
+            }
+
+            for (int redLightLevel = 0; redLightLevel <= 255; redLightLevel++)
+            {
+                finchRobot.setLED(redLightLevel, 0, 0);
+            }
+
+            for (int blueLightLevel = 0; blueLightLevel <= 255; blueLightLevel++)
+            {
+                finchRobot.setLED(0, 0, blueLightLevel);
+            }
+
+            //
+            //decrease blue LED
+            //
+
+            for (int blueLightLevel = 255; blueLightLevel >= 0; blueLightLevel--)
+            {
+                finchRobot.setLED(0, 0, blueLightLevel);
+            }
+
+            for (int lightSoundLevel = 0; lightSoundLevel < 105; lightSoundLevel++)
+            {
+                finchRobot.setLED(lightSoundLevel, lightSoundLevel, lightSoundLevel);
+                finchRobot.noteOn(lightSoundLevel * 20);
+                finchRobot.noteOff();
             }
 
             DisplayMenuPrompt("Talent Show Menu");
