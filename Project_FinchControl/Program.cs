@@ -181,7 +181,12 @@ namespace Project_FinchControl
             } while (!quitTalentShowMenu);
         }
 
-
+        /// <summary>
+        /// ****************************************************
+        /// *                 Talent Show > Sing A Song        *
+        /// **************************************************** 
+        /// </summary>
+        /// <param name="finchRobot"></param>
         static void TalentShowDisplayPlaySong(Finch finchRobot)
         {
             string userResponse;
@@ -428,7 +433,9 @@ namespace Project_FinchControl
         }
 
         /// <summary>
-        /// 
+        /// ****************************************************
+        /// *                 Talent Show > Movement           *
+        /// ****************************************************
         /// </summary>
         /// <param name="finchRobot"></param>
        
@@ -497,9 +504,11 @@ namespace Project_FinchControl
             DisplayMenuPrompt("Talent Show Menu");
 
         }
-        
+
         /// <summary>
-        /// 
+        /// ****************************************************
+        /// *                 Talent Show > All Actions           *
+        /// ****************************************************
         /// </summary>
         /// <param name="finchRobot"></param>
 
