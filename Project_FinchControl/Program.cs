@@ -140,8 +140,8 @@ namespace Project_FinchControl
                 //
                 Console.WriteLine("\ta) Light and Sound");
                 Console.WriteLine("\tb) Play Song");
-                Console.WriteLine("\tc) ");
-                Console.WriteLine("\td) ");
+                Console.WriteLine("\tc) Movement");
+                Console.WriteLine("\td) All Of The Above");
                 Console.WriteLine("\tq) Main Menu");
                 Console.Write("\t\tEnter Choice:");
                 menuChoice = Console.ReadLine().ToLower();
@@ -160,11 +160,11 @@ namespace Project_FinchControl
                         break;
 
                     case "c":
-
+                        TalentShowDisplayMovement(finchRobot);
                         break;
 
                     case "d":
-
+                        TalentShowDisplayAll(finchRobot);
                         break;
 
                     case "q":
@@ -327,7 +327,7 @@ namespace Project_FinchControl
 
             DisplayScreenHeader("Light and Sound");
 
-            Console.WriteLine("\tThe Finch robot will not show off its glowing talent!");
+            Console.WriteLine("\tThe Finch robot will show off its glowing talent!");
             DisplayContinuePrompt();
 
             for (int lightSoundLevel = 0; lightSoundLevel < 55; lightSoundLevel++)
@@ -424,7 +424,131 @@ namespace Project_FinchControl
                 finchRobot.noteOff();
             }
 
+            DisplayMenuPrompt("Talent Show Menu");         
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="finchRobot"></param>
+       
+        static void TalentShowDisplayMovement(Finch finchRobot)
+        {
+            Console.CursorVisible = false;
+
+            DisplayScreenHeader("Movement");
+
+            Console.WriteLine("\tThe Finch robot will now show off some unique movements!");
+            Console.WriteLine("Press anything to continue");
+            DisplayContinuePrompt();
+
+            //
+            // move robot forward
+            //
+
+            finchRobot.setMotors(250, 250);
+            finchRobot.wait(2000);
+            finchRobot.setMotors(0, 0);
+
+            //
+            // turn wide right
+            //
+
+            finchRobot.setMotors(250, 180);
+            finchRobot.wait(1300);
+            finchRobot.setMotors(0, 0);
+
+            //
+            // continue straight
+            //
+
+            finchRobot.setMotors(250, 250);
+            finchRobot.wait(1000);
+            finchRobot.setMotors(0, 0);
+
+            //
+            // turn left sharp
+            //
+
+            finchRobot.setMotors(100, 230);
+            finchRobot.wait(1300);
+            finchRobot.setMotors(0, 0);
+
+            //
+            // reverse right 
+            //
+
+            finchRobot.setMotors(100, -180);
+            finchRobot.wait(1000);
+            finchRobot.setMotors(0, 0);
+
+            //
+            // go farward and stop
+            //
+
+            finchRobot.setMotors(230, 250);
+            finchRobot.wait(2000);
+            finchRobot.setMotors(0, 0);
+
+            Console.WriteLine();
+            Console.WriteLine("Thank you for watching.");
+
+
             DisplayMenuPrompt("Talent Show Menu");
+
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="finchRobot"></param>
+
+        static void TalentShowDisplayAll(Finch finchRobot)
+        {
+            Console.CursorVisible = false;
+
+            DisplayScreenHeader("All steps");
+
+            Console.WriteLine("\t Now, the Finch robot will be showing off everything all together!");
+            Console.WriteLine("Press anything to continue");
+            DisplayContinuePrompt();
+
+            //
+            //flash user while going in cirlces and displaying sound
+            //
+
+            for (int lightSoundLevel = 0; lightSoundLevel < 165; lightSoundLevel++)
+            {
+                finchRobot.setMotors(150, -150);
+                finchRobot.setLED(lightSoundLevel, lightSoundLevel, lightSoundLevel);
+                finchRobot.noteOn(lightSoundLevel * 30);
+                finchRobot.noteOff();
+                finchRobot.setMotors(0, 0);
+            }
+
+            for (int numberofFlashes = 0; numberofFlashes < 7; numberofFlashes++)
+            {
+                finchRobot.setLED(250, 0, 0);
+                finchRobot.setMotors(-200, 200);
+                finchRobot.wait(300);
+                finchRobot.setLED(0, 0, 250);
+                finchRobot.wait(500);
+                finchRobot.setMotors(0, 0);
+            }
+            for (int numberofFlashes = 0; numberofFlashes < 10; numberofFlashes++)
+            {
+                finchRobot.setLED(0, 250, 0);
+                finchRobot.setMotors(-250, 250);
+                finchRobot.wait(175);
+                finchRobot.setMotors(150, -150);
+                finchRobot.setLED(0, 0, 250);
+                finchRobot.wait(175);
+                finchRobot.setLED(250, 0, 0);
+                finchRobot.setMotors(0, 0);
+            }
+
+            DisplayMenuPrompt("Talent Show Menu");
+            
         }
 
         #endregion
