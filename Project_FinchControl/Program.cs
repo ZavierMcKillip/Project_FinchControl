@@ -192,7 +192,7 @@ namespace Project_FinchControl
         /// <param name="temperatures"></param>
         static void DataRecorderDisplayDataTable(double[] temperatures)
         {
-            DisplayScreenHeader("Temperatures");
+            DisplayScreenHeader("Temperatures in F*");
 
 
             //
@@ -267,7 +267,11 @@ namespace Project_FinchControl
 
             for (int index = 0; index < numberofDataPoints; index++)
             {
-                temperatures[index] = finchRobot.getTemperature();
+                temperatures[index] = finchRobot.getTemperature() * (9 / 5) + 32;
+
+                //
+                //converted to F*
+                //
 
                 //
                 //echo new temp
@@ -283,10 +287,10 @@ namespace Project_FinchControl
             Console.WriteLine();
             Console.WriteLine(
                 "Reading #".PadLeft(20) +
-                "Temperature".PadLeft(15)
+                "Temperature F*".PadLeft(15)
                 );
             Console.WriteLine(
-               "--------".PadLeft(20) +
+               "---------".PadLeft(20) +
                "-----------".PadLeft(15)
                );
 
@@ -294,7 +298,7 @@ namespace Project_FinchControl
             {
                 Console.WriteLine(
                 (index + 1).ToString().PadLeft(20) +
-                (temperatures[index]).ToString().PadLeft(15)
+                (temperatures[index]).ToString("n1").PadLeft(15)
                 );
             }
 
