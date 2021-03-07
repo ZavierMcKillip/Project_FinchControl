@@ -328,10 +328,16 @@ namespace Project_FinchControl
             if (thresholdExceeded)
             {
                 Console.WriteLine("Threshold Exceeded");
+                finchRobot.noteOn(860);
+                finchRobot.wait(500);
+                finchRobot.noteOff();
             }
             else
             {
                 Console.WriteLine("Threshold Not Exceeded - Time Limit Exceeded");
+                finchRobot.noteOn(460);
+                finchRobot.wait(1000);
+                finchRobot.noteOff();
             }
 
 
