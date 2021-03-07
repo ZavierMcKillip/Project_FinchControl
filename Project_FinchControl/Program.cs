@@ -193,6 +193,14 @@ namespace Project_FinchControl
             } while (!quitTalentShowMenu);
         }
 
+        /// <summary>
+        /// Set Alarm
+        /// </summary>
+        /// <param name="finchRobot"></param>
+        /// <param name="sensorsToMonitor"></param>
+        /// <param name="rangeType"></param>
+        /// <param name="minMaxThresholdValue"></param>
+        /// <param name="timeToMonitor"></param>
         static void AlarmSystemDisplaySetAlarm(Finch finchRobot, string sensorsToMonitor, string rangeType, int minMaxThresholdValue, int timeToMonitor)
         {
             bool thresholdExceeded = false;
@@ -331,9 +339,9 @@ namespace Project_FinchControl
         }
 
         /// <summary>
-        /// asks for time between readings
+        /// Get Overall Time For Readings
         /// </summary>
-        /// <returns></returns>
+        /// <returns>TimeToMonitor</returns>
         static int AlarmSystemDisplayTimeToMonitor()
         {
             int timeToMonitor = 0;
@@ -368,6 +376,12 @@ namespace Project_FinchControl
             return timeToMonitor;
         }
 
+        /// <summary>
+        /// Gets Threshold Value
+        /// </summary>
+        /// <param name="sensorsToMonitor"></param>
+        /// <param name="finchRobot"></param>
+        /// <returns>ThresholdValue</returns>
         static int AlarmSystemDisplayThresholdValue(string sensorsToMonitor, Finch finchRobot)
         {
             int thresholdValue = 0;
@@ -429,6 +443,10 @@ namespace Project_FinchControl
 
         }
 
+        /// <summary>
+        /// Decides For Max or Min range type
+        /// </summary>
+        /// <returns>rangeType</returns>
         static string AlarmSystemDisplayRangeType()
         {
             string rangeType = "";
@@ -460,6 +478,10 @@ namespace Project_FinchControl
             return rangeType;
         }
 
+        /// <summary>
+        /// Get Desired Sensor
+        /// </summary>
+        /// <returns>sensorsToMonitor</returns>
         static string AlarmSystemDisplaySetSensors()
         {
             string sensorsToMonitor;
