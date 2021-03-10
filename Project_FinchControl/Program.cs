@@ -18,6 +18,21 @@ namespace Project_FinchControl
     //
     // **************************************************
 
+    public enum Command
+    {
+        NONE,
+        MOVEFORWARD,
+        MOVEBACKWARD,
+        STOPMOTORS,
+        WAIT,
+        TURNRIGHT,
+        TURNLEFT,
+        LEDON,
+        LEDOFF,
+        GETTEMPERATURE,
+        DONE
+    }
+
     class Program
     {
         /// <summary>
@@ -95,7 +110,7 @@ namespace Project_FinchControl
                         break;
 
                     case "e":
-
+                        UserProgrammingDisplayMenuScreen(finchRobot);
                         break;
 
                     case "f":
@@ -116,6 +131,157 @@ namespace Project_FinchControl
 
             } while (!quitApplication);
         }
+
+        #region USER PROGRAMMING
+        /// <summary>
+        /// *****************************************************************
+        /// *                     User Programming Menu                     *
+        /// *****************************************************************
+        /// </summary>
+        private static void UserProgrammingDisplayMenuScreen(Finch finchRobot)
+        {
+            Console.CursorVisible = true;
+
+            bool quitTalentShowMenu = false;
+            string menuChoice;
+
+            (int motorSpreed, int ledBrightness, double waitSeconds) commandParameters;
+            List<Command> commands = null;
+
+            do
+            {
+                DisplayScreenHeader("User Programming Menu");
+
+                //
+                // get user menu choice
+                //
+                Console.WriteLine("\ta) Set Command Parameters");
+                Console.WriteLine("\tb) Add Commands");
+                Console.WriteLine("\tc) View Commands");
+                Console.WriteLine("\td) Execute Commands");
+                Console.WriteLine("\tq) Main Menu");
+                Console.Write("\t\tEnter Choice:");
+                menuChoice = Console.ReadLine().ToLower();
+
+                //
+                // process user menu choice
+                //
+
+                switch (menuChoice)
+                {
+                    case "a":
+                        commandParameters = UserProgrammingDisplayGetCommandParameters();
+                        break;
+
+                    case "b":
+                        commands = UserProgrammingDisplayGetFinchCommands();
+                        break;
+
+                    case "c":
+                        UserProgrammingDisplayViewCommands(commands);
+                        break;
+
+                    case "d":
+                         
+                        break;
+
+                    case "q":
+                        quitTalentShowMenu = true;
+                        break;
+
+                    default:
+                        Console.WriteLine();
+                        Console.WriteLine("\tPlease enter a letter for the menu choice.");
+                        DisplayContinuePrompt();
+                        break;
+                }
+
+            } while (!quitTalentShowMenu);
+        }
+
+        static void UserProgrammingDisplayViewCommands(List<Command> commands)
+        {
+            DisplayScreenHeader("View Commands");
+
+            Console.WriteLine("\tCommand List:");
+            Console.WriteLine("\t--------------");
+
+            foreach (Command command in commands)
+            {
+                Console.WriteLine("\t" + command);
+            }
+
+            DisplayContinuePrompt();
+        }
+
+        static List<Command> UserProgrammingDisplayGetFinchCommands()
+        {
+            List<Command> commands = new List<Command>();
+            bool isDone = false;
+            string userResponse;
+            //Command command;
+
+            DisplayScreenHeader("User Commands");
+
+            do
+            {
+                Console.Write("Command:");
+                userResponse = Console.ReadLine();
+
+                if (userResponse != "done")
+                {
+                    if (Enum.TryParse(userResponse.ToUpper(), out Command command))
+                    {
+                        commands.Add(command);
+                    }
+                    else
+                    {
+                        Console.WriteLine("\tPlease enter one of the following commands.");
+                    }
+                }
+                else
+                {
+                    isDone = true;
+                }
+
+            } while (!isDone);
+
+            DisplayContinuePrompt();
+
+            return commands;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>commmandParameters</returns>
+        static (int motorSpreed, int ledBrightness, double waitSeconds) UserProgrammingDisplayGetCommandParameters()
+        {
+            (int motorSpeed, int ledBrightness, double waitSeconds) commandParameters;
+
+            DisplayScreenHeader("Command Parameters");
+
+            //
+            //validate these
+            //
+
+            Console.Write("Motor Speed: ");
+            commandParameters.motorSpeed = int.Parse(Console.ReadLine());
+
+            Console.Write("LED Brightness: ");
+            commandParameters.ledBrightness = int.Parse(Console.ReadLine());
+
+            Console.Write("Wait Time (Seconds): ");
+            commandParameters.waitSeconds = double.Parse(Console.ReadLine());
+
+
+            DisplayContinuePrompt();
+
+            return commandParameters;
+        }
+
+
+        #endregion
 
         #region ALARM SYSTEM
 
@@ -523,6 +689,7 @@ namespace Project_FinchControl
 
 
         #endregion
+
         #region DATA Recorder
 
         /// <summary>
@@ -792,6 +959,7 @@ namespace Project_FinchControl
         }
 
         #endregion
+
         #region TALENT SHOW
 
         /// <summary>
